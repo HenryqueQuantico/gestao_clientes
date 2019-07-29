@@ -12,7 +12,7 @@ class Person(models.Model):
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
     age = models.IntegerField()
-    salary = models.DecimalField(max_digits=5, decimal_places=2)
+    salary = models.DecimalField(max_digits=10, decimal_places=2)
     bio = models.TextField()
     photo = models.ImageField(upload_to='clients_photos', null=True, blank=True)
     doc = models.OneToOneField(Documento, null=True, blank=True, on_delete=models.CASCADE)
@@ -23,7 +23,7 @@ class Person(models.Model):
 
 class Produto(models.Model):
     descricao = models.CharField(max_length=100)
-    preco = models.DecimalField(max_digits=5, decimal_places=2)
+    preco = models.DecimalField(max_digits=10, decimal_places=2)
 
     def __str__(self):
         return self.descricao
@@ -31,9 +31,9 @@ class Produto(models.Model):
 
 class Venda(models.Model):
     numero = models.CharField(max_length=7)
-    valor = models.DecimalField(max_digits=5, decimal_places=2)
-    desconto = models.DecimalField(max_digits=5, decimal_places=2)
-    impostos = models.DecimalField(max_digits=5, decimal_places=2)
+    valor = models.DecimalField(max_digits=10, decimal_places=2)
+    desconto = models.DecimalField(max_digits=10, decimal_places=2)
+    impostos = models.DecimalField(max_digits=10, decimal_places=2)
     pessoa = models.ForeignKey(Person, null=True, blank=True, on_delete=models.PROTECT)
     produtos = models.ManyToManyField(Produto, blank=True)
 

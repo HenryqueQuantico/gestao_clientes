@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+
+{% block title %} Olá este e o method {{method}} {% endblock %}
+
+{%block head%}
+<style>
+    form{
+        margin: 5px;
+        border: 1px;
+        padding: 2px;
+        border-style: dashed;
+        border-color: green; 
+        width: 70px;       
+    }
+      
+</style>
+{%endblock%}
+
+{% block main %}
+
+<h1>Olá este e o method {{method}}</h1>
+
+<form method="GET">
+    <button type="submit">GET</button>
+</form>
+
+
+<form method="POST">
+    {%csrf_token%}
+    <button type="submit">POST</button>
+</form>
+
+{% endblock %}
+
+{% block footer %}
+    <footer class="footer">
+      <div class="container">
+        <span class="text-muted">Desenvolvimento web com Django 2.x</span>
+      </div>
+    </footer>
+{% endblock %}

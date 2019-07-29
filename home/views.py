@@ -1,6 +1,6 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, HttpResponse
 from django.contrib.auth import logout
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, View
 
 
 def home(request):
@@ -19,3 +19,15 @@ class HomeView(TemplateView):
         context['Variavel_Injetada'] = "Veriavel injetada no contexto da View"
         return context
 
+class SimpleView(View):
+    
+    def get(self, request, *args, **kwargs):
+        return HttpResponse("View simples")
+
+class MethodsView(View):
+
+    def get(self, request, *args, **kwargs):
+        return render(request, 'methods.html', {'method':'get'})
+
+    def post(self, request, *args, **kwargs):
+        return render(request, 'methods.html', {'method':'post'})
