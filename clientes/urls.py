@@ -4,6 +4,10 @@ from .views import persons_new
 from .views import persons_update
 from .views import persons_delete
 from .views import PersonView
+from .views import PersonDetail
+from .views import PersonCreate
+from .views import PersonUpdate
+from .views import PersonDelete
 
 
 urlpatterns = [
@@ -12,4 +16,8 @@ urlpatterns = [
     path('update/<int:id>/', persons_update, name="persons_update"),
     path('delete/<int:id>/', persons_delete, name="persons_delete"),
     path('person_list/', PersonView.as_view(), name ='person_list_view'),
+    path('person_detail/<int:pk>', PersonDetail.as_view(), name='person_detail_view'),
+    path('person_create/', PersonCreate.as_view(), name='person_create_view'),
+    path('person_update/<int:pk>', PersonUpdate.as_view(), name='person_update_view'),
+    path('person_delete/<int:pk>', PersonDelete.as_view(), name='person_delete_view'),
 ]

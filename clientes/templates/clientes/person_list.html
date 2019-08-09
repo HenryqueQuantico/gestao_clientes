@@ -5,8 +5,13 @@
 
 <ol>
 {%for pessoa in object_list%}
-    <li>{{pessoa}}</li>
+    <li><a href="{% url 'person_detail_view' pessoa.pk %}">{{pessoa}}</a></li>
 {%endfor%}
 </ol>
+
+<form action="{% url 'person_create_view' %}" method="GET">
+    <button type="submit">Criar novo</button>
+</form>
+
 
 {%endblock%}

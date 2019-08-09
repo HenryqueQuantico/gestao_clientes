@@ -1,0 +1,12 @@
+{%extends 'base.html'%}
+
+{%block main%}
+<form action="", method="POST">
+    {%csrf_token%}
+    <p>Tem certesa que dejeja deletar {{object}} ?</p><br>
+    <input type="submit" value="Confirm">
+</form>
+<form action="{% url 'person_list_view'%}" method="GET">
+    <input type="submit" value="Voltar">
+</form>
+{%endblock%}

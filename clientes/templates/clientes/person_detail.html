@@ -1,0 +1,16 @@
+{%extends 'base.html'%}
+
+{%block main%}
+<h1>Detalhes</h1>
+
+<h2>Nome: {{object.first_name}} {{object.last_name}}</h2>
+<div style="border-style:dotted; border-color:#444444;">
+Idade: {{object.age}}<br>
+Salario: {{object.salary}}<br>
+</div>
+{{now}}
+<br><br>
+<form action="{% url 'person_update_view' object.id %}" method="GET">
+    <button type="submit">Atualizar</button>
+</form>
+{%endblock%}
